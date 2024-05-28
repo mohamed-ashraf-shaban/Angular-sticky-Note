@@ -1,0 +1,36 @@
+<section id="signIn" class="mb-5">
+    <div class="container auth-card shadow">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-12 col-md-6 col-lg-6">
+                <img src="../../../assets/Login-rafiki.svg" alt="" class="w-100">
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+                <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" class="form-control mb-2" formControlName="email">
+
+                        <div *ngIf="loginForm.get('email')?.errors&& loginForm.get('email')?.touched"
+                            class="msg-error p-2 mt-2 small w-75 mx-auto text-center rounded">
+                            <p *ngIf="loginForm.get('email')?.getError('required')">email is required</p>
+                            <p *ngIf="loginForm.get('email')?.getError('email')">not valid email</p>
+                        </div>
+                        <label for="password">password:</label>
+                        <input type="password" id="password" class="form-control mb-2" formControlName="password">
+                        <div *ngIf="loginForm.get('password')?.errors&&loginForm.get('password')?.touched"
+                            class="msg-error p-2 mt-2 small w-75 mx-auto text-center rounded">
+                            <p *ngIf="loginForm.get('password')?.getError('required')">password is required</p>
+                            <p *ngIf="loginForm.get('password')?.getError('pattern')">Password must begin with uppercase
+                                and following at least 8 characters and numbers!</p>
+                        </div>
+                    </div>
+
+
+                    <button [disabled]="loginForm.invalid" type="submit"
+                        class="form-control btn btn-submit">Login</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,33 @@
+.home{
+    height: 100vh;
+    background-color: #FEFBF3;
+}
+.card{
+    width: 25%;
+    padding: 1em;
+}
+.settings-dots{
+    cursor: pointer;
+}
+.addNoteBtn{
+    background-color: #79B4B7;
+    color: #FEFBF3;
+
+}
+.cancelNoteBtn{
+    background-color: #F16767;
+    color: #FEFBF3;
+}
+.addNoteBtn:hover{
+    border: 1px solid black;
+    background-color: #FEFBF3;
+    color: black;
+}
+.cancelNoteBtn:hover{
+    border: 1px solid black;
+    background-color: #FEFBF3;
+    color: black;
+}
+.dropdown-menu{
+    cursor: pointer;
+}

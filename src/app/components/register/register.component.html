@@ -1,0 +1,84 @@
+<section class="p-4 mt-5">
+    <div class="container auth-card shadow">
+        <div class="row align-items-center justify-content-center">
+            <div class="col-12 col-md-6 col-lg-6">
+                <img src="../../../assets/Sign up-rafiki.svg" alt="">
+            </div>
+            <div class="col-12 col-md-6 col-lg-6">
+                <form [formGroup]="getRegisterData" (ngSubmit)="register(getRegisterData)">
+                    <!--Name input -->
+                    <div class="form-item">
+                        <label for="name">Name:</label>
+                        <input id="name" class="form-control" type="text" formControlName="name">
+                    </div>
+                    <div *ngIf="getRegisterData.get('name')?.errors && getRegisterData.get('name')?.touched"
+                        class="msg-error p-2 mt-2 small w-75 mx-auto text-center rounded">
+                        <p class="pb-0 mb-0" *ngIf="getRegisterData.get('name')?.getError('required')">Name Is Required
+                        </p>
+                        <p class="pb-0 mb-0" *ngIf="getRegisterData.get('name')?.getError('minlength')">Name MaxLength
+                            Must Be More Than 3</p>
+                        <p class="pb-0 mb-0" *ngIf="getRegisterData.get('name')?.getError('maxlength')">Name MaxLength
+                            Must Be Less Than 20</p>
+                    </div>
+                    <!-- Email input -->
+                    <div class="form-item">
+                        <label for="email">Email</label>
+                        <input id="email" class="form-control" type="text" formControlName="email">
+                    </div>
+                    <div *ngIf="getRegisterData.get('email')?.errors && getRegisterData.get('email')?.touched"
+                        class="msg-error p-2 mt-2 small w-75 mx-auto text-center rounded">
+                        <p class="pb-0 mb-0" *ngIf="getRegisterData.get('email')?.getError('required')">email Is
+                            Required</p>
+                        <p class="pb-0 mb-0" *ngIf="getRegisterData.get('email')?.getError('email')">Email are incorrect
+                            !</p>
+                    </div>
+                    <!-- Password input -->
+                    <div class="form-item">
+                        <label for="password">Password</label>
+                        <input id="password" class="form-control" type="password" formControlName="password">
+                    </div>
+
+                    <div *ngIf="getRegisterData.get('password')?.errors && getRegisterData.get('password')?.touched"
+                        class="msg-error p-2 mt-2 small w-75 mx-auto text-center rounded">
+                        <p class="pb-0 mb-0" *ngIf="getRegisterData.get('password')?.getError('required')">password Is
+                            Required</p>
+                        <p class="pb-0 mb-0" *ngIf="getRegisterData.get('password')?.getError('pattern')">password must
+                            be started with a-z or A-z and numbers and more than 6</p>
+                    </div>
+                    <!-- age input -->
+                    <div class="form-item">
+                        <label for="age">Age</label>
+                        <input id="age" class="form-control" type="age" formControlName="age">
+                    </div>
+
+                    <div *ngIf="getRegisterData.get('age')?.errors && getRegisterData.get('age')?.touched"
+                        class="msg-error p-2 mt-2 small w-75 mx-auto text-center rounded">
+                        <p class="pb-0 mb-0" *ngIf="getRegisterData.get('age')?.getError('required')">age Is Required
+                        </p>
+                        <p class="pb-0 mb-0" *ngIf="getRegisterData.get('age')?.getError('pattern')">age must be started
+                            with a-z or A-z and numbers and more than 6</p>
+                    </div>
+                    <!-- phone input -->
+                    <div class="form-item">
+                        <label for="phone">phone:</label>
+                        <input id="phone" class="form-control" type="text" formControlName="phone">
+                    </div>
+                    <div *ngIf="getRegisterData.get('phone')?.errors && getRegisterData.get('phone')?.touched"
+                        class="msg-error p-2 mt-2 small w-75 mx-auto text-center rounded">
+                        <p class="pb-0 mb-0" *ngIf="getRegisterData.get('phone')?.getError('required')">phone Is
+                            Required</p>
+                        <p class="pb-0 mb-0" *ngIf="getRegisterData.get('phone')?.getError('pattern')">Not an Egyptian
+                            number !</p>
+                    </div>
+
+
+
+
+                    <button [disabled]="getRegisterData.invalid" class="btn btn-submit mt-3 w-100">Register
+
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
